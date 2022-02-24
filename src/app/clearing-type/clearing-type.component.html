@@ -1,0 +1,319 @@
+<p>
+    <mat-toolbar class="themeColor">
+      <span>Payment Processing Module</span>
+    </mat-toolbar>
+</p>
+
+<mat-grid-list cols="5" rowHeight="3rem">
+    <mat-grid-tile>
+        <div class="mat-body-2 left">
+            USERNAME: GC73034
+        </div>
+     </mat-grid-tile>
+     <mat-grid-tile>
+        <div class="mat-body-2">
+            DATE: 01-03-2022
+        </div>
+     </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+        <div class="right">
+            <button mat-stroked-button>SAVE</button>
+            <button mat-stroked-button>CLOSE</button>
+        </div>
+
+    </mat-grid-tile>
+</mat-grid-list>
+
+<p>
+    <mat-toolbar id="clearingHead" class="center">
+      <span>Clearing Type Details</span>
+    </mat-toolbar>
+</p>
+
+<mat-grid-list cols="4" rowHeight="4rem" >
+
+    <!-- row 1 start -->
+    <mat-grid-tile colspan="2" >
+        <div class="left">
+            <mat-form-field  appearance="fill" >
+                <mat-label>Clearing Type</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+    </mat-grid-tile>
+
+    <!-- row 2 start -->
+    <mat-grid-tile colspan="2">
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Country Code</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Country Name</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+    </mat-grid-tile>
+
+    <!-- row 3 start -->
+    <mat-grid-tile>
+        <div class="left">
+            <mat-form-field appearance="fill">
+                <mat-label>Day Flag</mat-label>
+                <mat-select [(value)]="dayFlagValue">
+                  <mat-option value="test1">Test 1</mat-option>
+                  <mat-option value="test2">Test 2</mat-option>
+                  <mat-option value="test3">Test 3</mat-option>
+                  <mat-option value="test4">Test 4</mat-option>
+                </mat-select>
+            </mat-form-field>   
+        </div>
+               
+    </mat-grid-tile>
+    
+    <mat-grid-tile >
+        <div class="left">
+            <mat-checkbox color="primary">ByPass IGP Check</mat-checkbox>
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <div class="left">
+            <mat-checkbox color="primary">Work Flow Flag</mat-checkbox>
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <div class="left">
+            <mat-checkbox color="primary">House Check Flag</mat-checkbox>
+        </div>
+    </mat-grid-tile>
+
+</mat-grid-list>
+
+<mat-grid-list cols="3" rowHeight="4rem">
+    <!-- row 4 start -->
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Remainder Days</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Expected Clearing Days</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Transaction Code</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+
+    </mat-grid-tile>
+
+    <!-- row 5 starts -->
+
+    <mat-grid-tile >
+        <mat-checkbox color="primary" class="left">Commital Realisation Flag</mat-checkbox>
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Commital Realisation Days</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field appearance="fill">
+                <mat-label>Commital Realisation Stage</mat-label>
+                <mat-select [(value)]="commitalRealisationStage">
+                  <mat-option value="test1">Test 1</mat-option>
+                  <mat-option value="test2">Test 2</mat-option>
+                  <mat-option value="test3">Test 3</mat-option>
+                  <mat-option value="test4">Test 4</mat-option>
+                </mat-select>
+            </mat-form-field>  
+        </div>
+        
+    </mat-grid-tile>
+
+
+    <!-- row 6 starts -->
+
+        <mat-grid-tile >
+            <mat-checkbox color="primary" class="left">Auto Finality Flag</mat-checkbox>
+        </mat-grid-tile>
+    
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Auto Finality Days</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+            </div>
+
+        </mat-grid-tile>
+    
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field appearance="fill">
+                    <mat-label>Auto Finality Stage</mat-label>
+                    <mat-select [(value)]="autoFinalityStage">
+                      <mat-option value="test1">Test 1</mat-option>
+                      <mat-option value="test2">Test 2</mat-option>
+                      <mat-option value="test3">Test 3</mat-option>
+                      <mat-option value="test4">Test 4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+          
+        </mat-grid-tile>
+
+
+    <!-- row 7 starts -->
+
+    <mat-grid-tile >
+        <mat-checkbox color="primary" class="left">Auto Liquidation Flag</mat-checkbox>
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Auto Liquidation Days</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field appearance="fill">
+                <mat-label>Auto Liquidation Stage</mat-label>
+                <mat-select [(value)]="autoLiquidationStage">
+                  <mat-option value="test1">Test 1</mat-option>
+                  <mat-option value="test2">Test 2</mat-option>
+                  <mat-option value="test3">Test 3</mat-option>
+                  <mat-option value="test4">Test 4</mat-option>
+                </mat-select>
+            </mat-form-field> 
+        </div>
+         
+    </mat-grid-tile>
+
+    <!-- row 8 starts -->
+
+    <mat-grid-tile >
+        <mat-checkbox color="primary" class="left">Duplicate Check</mat-checkbox>
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Field for Duplicate Check</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Clearing Type for Duplicate Check</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
+    <!-- row 9 starts -->
+
+<mat-grid-list cols="2" rowHeight="4rem">
+
+    <mat-grid-tile>
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Remarks</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile >
+        <div class="left">
+            <mat-form-field  appearance="fill">
+                <mat-label>Bin Length</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
+        </div>
+
+    </mat-grid-tile>
+</mat-grid-list>
+
+<!-- row 10 starts -->
+
+<mat-grid-list cols="6" rowHeight="4rem">
+    <mat-grid-tile colspan="2">
+
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" id="workFlow">
+        <p>Work Flow Details</p>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+
+    </mat-grid-tile>
+</mat-grid-list>
+
+<!-- row 11 starts -->
+
+<mat-grid-list cols="4" rowHeight="4rem" gutterSize="2px" >
+    <mat-grid-tile class="themeColor">
+        <mat-checkbox >Active Status</mat-checkbox>
+    </mat-grid-tile>
+    <mat-grid-tile class="themeColor">
+        <p>Maker: gc73034</p>
+    </mat-grid-tile>
+    <mat-grid-tile class="themeColor">
+        <p>Date: 02-01-2022</p>
+    </mat-grid-tile>
+    <mat-grid-tile class="themeColor">
+        <p>Status: New</p>
+    </mat-grid-tile>
+</mat-grid-list>
+
+    
+
+
+
