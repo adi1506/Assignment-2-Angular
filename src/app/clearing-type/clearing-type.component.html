@@ -1,317 +1,334 @@
-<p>
-    <mat-toolbar class="themeColor">
-      <span>Payment Processing Module</span>
-    </mat-toolbar>
-</p>
+<form [formGroup] = "service.form" #clearingTypeForm="ngForm" (ngSubmit)="getClearingTypeData(clearingTypeForm.value)">
 
-<mat-grid-list cols="5" rowHeight="3rem">
-    <mat-grid-tile>
-        <div class="mat-body-2 left">
-            USERNAME: GC73034
-        </div>
-     </mat-grid-tile>
-     <mat-grid-tile>
-        <div class="mat-body-2">
-            DATE: 01-03-2022
-        </div>
-     </mat-grid-tile>
-    <mat-grid-tile colspan="3">
-        <div class="right">
-            <button mat-stroked-button>SAVE</button>
-            <button mat-stroked-button>CLOSE</button>
-        </div>
-
-    </mat-grid-tile>
-</mat-grid-list>
-
-<p>
-    <mat-toolbar id="clearingHead" class="center">
-      <span>Clearing Type Details</span>
-    </mat-toolbar>
-</p>
-
-<mat-grid-list cols="4" rowHeight="4rem" >
-
-    <!-- row 1 start -->
-    <mat-grid-tile colspan="2" >
-        <div class="left">
-            <mat-form-field  appearance="fill" >
-                <mat-label>Clearing Type</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2">
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Description</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-    </mat-grid-tile>
-
-    <!-- row 2 start -->
-    <mat-grid-tile colspan="2">
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Country Code</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2">
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Country Name</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-    </mat-grid-tile>
-
-    <!-- row 3 start -->
-    <mat-grid-tile>
-        <div class="left">
-            <mat-form-field appearance="fill">
-                <mat-label>Day Flag</mat-label>
-                <mat-select [(value)]="dayFlagValue">
-                  <mat-option value="test1">Test 1</mat-option>
-                  <mat-option value="test2">Test 2</mat-option>
-                  <mat-option value="test3">Test 3</mat-option>
-                  <mat-option value="test4">Test 4</mat-option>
-                </mat-select>
-            </mat-form-field>   
-        </div>
-               
-    </mat-grid-tile>
     
-    <mat-grid-tile >
-        <div class="left">
-            <mat-checkbox color="primary">ByPass IGP Check</mat-checkbox>
-        </div>
-    </mat-grid-tile>
+    <mat-grid-list cols="5" rowHeight="3rem">
+        <mat-grid-tile>
+            <div class="mat-body-2 left">
+                USERNAME: {{users.username}}
+            </div>
+         </mat-grid-tile>
+         <mat-grid-tile>
+            <div class="mat-body-2">
+                DATE: {{users.date}}
+            </div>
+         </mat-grid-tile>
+        <mat-grid-tile colspan="3">
+            <div class="right">
+                <button mat-stroked-button (click) = "onSave()">SAVE</button>
+                <button mat-stroked-button>CLOSE</button>
+            </div>
+    
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    <p>
+        <mat-toolbar id="clearingHead" class="center">
+          <span>Clearing Type Details</span>
+        </mat-toolbar>
+    </p>
+    
+    <mat-grid-list cols="4" rowHeight="4rem" >
 
-    <mat-grid-tile>
-        <div class="left">
-            <mat-checkbox color="primary">Work Flow Flag</mat-checkbox>
-        </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-        <div class="left">
-            <mat-checkbox color="primary">House Check Flag</mat-checkbox>
-        </div>
-    </mat-grid-tile>
-
-</mat-grid-list>
-
-<mat-grid-list cols="3" rowHeight="4rem">
-    <!-- row 4 start -->
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Remainder Days</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-
-    </mat-grid-tile>
-
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Expected Clearing Days</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Transaction Code</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-
-    </mat-grid-tile>
-
-    <!-- row 5 starts -->
-
-    <mat-grid-tile >
-        <mat-checkbox color="primary" class="left">Commital Realisation Flag</mat-checkbox>
-    </mat-grid-tile>
-
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Commital Realisation Days</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-
-    </mat-grid-tile>
-
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field appearance="fill">
-                <mat-label>Commital Realisation Stage</mat-label>
-                <mat-select [(value)]="commitalRealisationStage">
-                  <mat-option value="test1">Test 1</mat-option>
-                  <mat-option value="test2">Test 2</mat-option>
-                  <mat-option value="test3">Test 3</mat-option>
-                  <mat-option value="test4">Test 4</mat-option>
-                </mat-select>
-            </mat-form-field>  
-        </div>
+        <input type="hidden" formControlName="$key">
+    
+        <!-- row 1 start -->
+        <mat-grid-tile colspan="2" >
+            <div class="left">
+                <mat-form-field  appearance="fill" >
+                    <mat-label>Clearing Type</mat-label>
+                    <input ngModel matInput type="text" formControlName="clearingType">
+                    <mat-error *ngIf="service.form.controls['clearingType'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="service.form.controls['clearingType'].errors?.minLength">Minimum 5 characters is required</mat-error>
+                    <mat-error *ngIf="service.form.controls['clearingType'].errors?.maxLength">Maximum 30 characters is required</mat-error>
+                    <mat-error *ngIf="service.form.controls['clearingType'].errors?.pattern">Only Alphabets are allowed</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2">
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Description</mat-label>
+                    <input ngModel matInput type="text" formControlName="description">
+                    <mat-error *ngIf="service.form.controls['description'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="service.form.controls['description'].errors?.pattern">No special characters allowed</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    
+        <!-- row 2 start -->
+        <mat-grid-tile colspan="2">
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Country Code</mat-label>
+                    <input ngModel matInput type="text" formControlName="countryCode">
+                    <mat-error *ngIf="service.form.controls['countryCode'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="service.form.controls['countryCode'].errors?.minLength">Only 3 characters are allowed</mat-error>
+                    <mat-error *ngIf="service.form.controls['countryCode'].errors?.maxLength">Only 3 characters are allowed</mat-error>
+                </mat-form-field>
+            </div>
+    
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2">
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Country Name</mat-label>
+                    <input ngModel matInput type="text" formControlName="countryName">
+                    <mat-error *ngIf="service.form.controls['countryName'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="service.form.controls['countryName'].errors?.pattern">Only Alphabets are allowed</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    
+        <!-- row 3 start -->
+        <mat-grid-tile>
+            <div class="left">
+                <mat-form-field appearance="fill">
+                    <mat-label>Day Flag</mat-label>
+                    <mat-select ngModel [(value)]="dayFlagValue" formControlName="dayFlag">
+                      <mat-option value="test1">{{users.dayFlag[0]}}</mat-option>
+                      <mat-option value="test2">{{users.dayFlag[1]}}</mat-option>
+                      <mat-option value="test3">{{users.dayFlag[2]}}</mat-option>
+                      <mat-option value="test4">{{users.dayFlag[3]}}</mat-option>
+                    </mat-select>
+                </mat-form-field>   
+            </div>
+                   
+        </mat-grid-tile>
         
-    </mat-grid-tile>
-
-
-    <!-- row 6 starts -->
-
         <mat-grid-tile >
-            <mat-checkbox color="primary" class="left">Auto Finality Flag</mat-checkbox>
+            <div class="left">
+                <mat-checkbox ngModel color="primary" formControlName="byPassIGPCheck">ByPass IGP Check</mat-checkbox>
+            </div>
+        </mat-grid-tile>
+    
+        <mat-grid-tile>
+            <div class="left">
+                <mat-checkbox ngModel color="primary" formControlName="workFlowFlag">Work Flow Flag</mat-checkbox>
+            </div>
+        </mat-grid-tile>
+    
+        <mat-grid-tile>
+            <div class="left">
+                <mat-checkbox ngModel color="primary" formControlName="houseCheckFlag">House Check Flag</mat-checkbox>
+            </div>
+        </mat-grid-tile>
+    
+    </mat-grid-list>
+    
+    <mat-grid-list cols="3" rowHeight="4rem">
+        <!-- row 4 start -->
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Remainder Days</mat-label>
+                    <input ngModel matInput type="number" formControlName="remainderDays">
+                    <mat-error *ngIf="service.form.controls['remainderDays'].errors?.required">This field is mandatory</mat-error>
+                    <mat-error *ngIf="service.form.controls['remainderDays'].errors?.min">Minimum value should be 30</mat-error>
+                </mat-form-field>
+            </div>
+    
         </mat-grid-tile>
     
         <mat-grid-tile >
             <div class="left">
                 <mat-form-field  appearance="fill">
-                    <mat-label>Auto Finality Days</mat-label>
-                    <input matInput type="text">
+                    <mat-label>Expected Clearing Days</mat-label>
+                    <input ngModel matInput type="text" formControlName="expectedClearingDays">
+                    <mat-error *ngIf="service.form.controls['expectedClearingDays'].errors?.minLength">Minimum 2 characters allowed</mat-error>
+                    <mat-error *ngIf="service.form.controls['expectedClearingDays'].errors?.maxLength">Maximum 3 characters allowed</mat-error>
+                    <mat-error *ngIf="service.form.controls['expectedClearingDays'].errors?.pattern">Onlu numeric values allowed</mat-error>
                 </mat-form-field>
             </div>
-
+        </mat-grid-tile>
+    
+        <mat-grid-tile>
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Transaction Code</mat-label>
+                    <input ngModel matInput type="text" formControlName="transactionCode">
+                </mat-form-field>
+            </div>
+    
+        </mat-grid-tile>
+    
+        <!-- row 5 starts -->
+    
+        <mat-grid-tile >
+            <mat-checkbox ngModel color="primary" class="left" formControlName="commitalRealisationFlag">Commital Realisation Flag</mat-checkbox>
+        </mat-grid-tile>
+    
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Commital Realisation Days</mat-label>
+                    <input ngModel matInput type="text" formControlName="commitalRealisationDays">
+                </mat-form-field>
+            </div>
+    
         </mat-grid-tile>
     
         <mat-grid-tile >
             <div class="left">
                 <mat-form-field appearance="fill">
-                    <mat-label>Auto Finality Stage</mat-label>
-                    <mat-select [(value)]="autoFinalityStage">
-                      <mat-option value="test1">Test 1</mat-option>
-                      <mat-option value="test2">Test 2</mat-option>
-                      <mat-option value="test3">Test 3</mat-option>
-                      <mat-option value="test4">Test 4</mat-option>
+                    <mat-label>Commital Realisation Stage</mat-label>
+                    <mat-select ngModel [(value)]="commitalRealisationStage" formControlName="commitalRealisationStage">
+                      <mat-option value="test1">{{users.commitalRealisationStage[0]}}</mat-option>
+                      <mat-option value="test2">{{users.commitalRealisationStage[1]}}</mat-option>
+                      <mat-option value="test3">{{users.commitalRealisationStage[2]}}</mat-option>
+                      <mat-option value="test4">{{users.commitalRealisationStage[3]}}</mat-option>
                     </mat-select>
+                </mat-form-field>  
+            </div>
+            
+        </mat-grid-tile>
+    
+    
+        <!-- row 6 starts -->
+    
+            <mat-grid-tile >
+                <mat-checkbox ngModel color="primary" class="left" formControlName="autoFinalityFlag">Auto Finality Flag</mat-checkbox>
+            </mat-grid-tile>
+        
+            <mat-grid-tile >
+                <div class="left">
+                    <mat-form-field  appearance="fill">
+                        <mat-label>Auto Finality Days</mat-label>
+                        <input ngModel matInput type="text" formControlName="autoFinalityDays">
+                    </mat-form-field>
+                </div>
+    
+            </mat-grid-tile>
+        
+            <mat-grid-tile >
+                <div class="left">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Auto Finality Stage</mat-label>
+                        <mat-select ngModel [(value)]="autoFinalityStage" formControlName="autoFinalityStage">
+                          <mat-option value="test1">{{users.autoFinalityStage[0]}}</mat-option>
+                          <mat-option value="test2">{{users.autoFinalityStage[1]}}</mat-option>
+                          <mat-option value="test3">{{users.autoFinalityStage[2]}}</mat-option>
+                          <mat-option value="test4">{{users.autoFinalityStage[3]}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+              
+            </mat-grid-tile>
+    
+    
+        <!-- row 7 starts -->
+    
+        <mat-grid-tile >
+            <mat-checkbox ngModel color="primary" class="left" formControlName="autoLiquidationFlag">Auto Liquidation Flag</mat-checkbox>
+        </mat-grid-tile>
+    
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Auto Liquidation Days</mat-label>
+                    <input ngModel matInput type="text" formControlName="autoLiquidationDays">
                 </mat-form-field>
             </div>
-          
+    
         </mat-grid-tile>
+    
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field appearance="fill">
+                    <mat-label>Auto Liquidation Stage</mat-label>
+                    <mat-select ngModel [(value)]="autoLiquidationStage" formControlName="autoLiquidationStage">
+                      <mat-option value="test1">{{users.autoLiquidationStage[0]}}</mat-option>
+                      <mat-option value="test2">{{users.autoLiquidationStage[1]}}</mat-option>
+                      <mat-option value="test3">{{users.autoLiquidationStage[2]}}</mat-option>
+                      <mat-option value="test4">{{users.autoLiquidationStage[3]}}</mat-option>
+                    </mat-select>
+                </mat-form-field> 
+            </div>
+             
+        </mat-grid-tile>
+    
+        <!-- row 8 starts -->
+    
+        <mat-grid-tile >
+            <mat-checkbox ngModel color="primary" class="left" formControlName="duplicateCheck">Duplicate Check</mat-checkbox>
+        </mat-grid-tile>
+    
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Field for Duplicate Check</mat-label>
+                    <input ngModel matInput type="text" formControlName="fieldForDuplicateCheck">
+                </mat-form-field>
+            </div>
+    
+        </mat-grid-tile>
+    
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Clearing Type for Duplicate Check</mat-label>
+                    <input ngModel matInput type="text" formControlName="clearingTypeForDuplicateCheck">
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+        <!-- row 9 starts -->
+    
+    <mat-grid-list cols="2" rowHeight="4rem">
+    
+        <mat-grid-tile>
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Remarks</mat-label>
+                    <input ngModel matInput type="text" formControlName="remarks">
+                </mat-form-field>
+            </div>
+    
+        </mat-grid-tile>
+    
+        <mat-grid-tile >
+            <div class="left">
+                <mat-form-field  appearance="fill">
+                    <mat-label>Bin Length</mat-label>
+                    <input ngModel matInput type="text" formControlName="binLength">
+                </mat-form-field>
+            </div>
+    
+        </mat-grid-tile>
+    
+        <mat-grid-tile>
+            <div class="left">
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input ngModel matInput [matDatepicker]="picker" [min]="todayDate" formControlName="datePicker">
+                    <mat-error *ngIf="service.form.controls['datePicker'].errors?.required">This field is mandatory</mat-error>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    <!-- row 10 starts -->
+    
+    <mat-grid-list cols="6" rowHeight="4rem">
+        <mat-grid-tile colspan="2">
+    
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" id="workFlow">
+            <p>Work Flow Details</p>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2">
+    
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    <!-- row 11 starts -->
+    
+    
+    
+</form>
 
-
-    <!-- row 7 starts -->
-
-    <mat-grid-tile >
-        <mat-checkbox color="primary" class="left">Auto Liquidation Flag</mat-checkbox>
-    </mat-grid-tile>
-
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Auto Liquidation Days</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-
-    </mat-grid-tile>
-
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field appearance="fill">
-                <mat-label>Auto Liquidation Stage</mat-label>
-                <mat-select [(value)]="autoLiquidationStage">
-                  <mat-option value="test1">Test 1</mat-option>
-                  <mat-option value="test2">Test 2</mat-option>
-                  <mat-option value="test3">Test 3</mat-option>
-                  <mat-option value="test4">Test 4</mat-option>
-                </mat-select>
-            </mat-form-field> 
-        </div>
-         
-    </mat-grid-tile>
-
-    <!-- row 8 starts -->
-
-    <mat-grid-tile >
-        <mat-checkbox color="primary" class="left">Duplicate Check</mat-checkbox>
-    </mat-grid-tile>
-
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Field for Duplicate Check</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-
-    </mat-grid-tile>
-
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Clearing Type for Duplicate Check</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-    </mat-grid-tile>
-</mat-grid-list>
-
-    <!-- row 9 starts -->
-
-<mat-grid-list cols="2" rowHeight="4rem">
-
-    <mat-grid-tile>
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Remarks</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-
-    </mat-grid-tile>
-
-    <mat-grid-tile >
-        <div class="left">
-            <mat-form-field  appearance="fill">
-                <mat-label>Bin Length</mat-label>
-                <input matInput type="text">
-            </mat-form-field>
-        </div>
-
-    </mat-grid-tile>
-</mat-grid-list>
-
-<!-- row 10 starts -->
-
-<mat-grid-list cols="6" rowHeight="4rem">
-    <mat-grid-tile colspan="2">
-
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" id="workFlow">
-        <p>Work Flow Details</p>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2">
-
-    </mat-grid-tile>
-</mat-grid-list>
-
-<!-- row 11 starts -->
-
-<mat-grid-list cols="4" rowHeight="4rem" gutterSize="2px" >
-    <mat-grid-tile class="themeColor">
-        <mat-checkbox >Active Status</mat-checkbox>
-    </mat-grid-tile>
-    <mat-grid-tile class="themeColor">
-        <p>Maker: gc73034</p>
-    </mat-grid-tile>
-    <mat-grid-tile class="themeColor">
-        <p>Date: 02-01-2022</p>
-    </mat-grid-tile>
-    <mat-grid-tile class="themeColor">
-        <p>Status: New</p>
-    </mat-grid-tile>
-</mat-grid-list>
 
     
 

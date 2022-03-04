@@ -9,6 +9,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 const MaterialComponents = [
   MatButtonModule,
@@ -20,7 +24,10 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatSelectModule,
   MatCheckboxModule,
-  MatCardModule
+  MatCardModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatDialogModule
 ]
 
 
